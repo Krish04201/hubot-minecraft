@@ -15,11 +15,11 @@ class exports.Client extends events.EventEmitter
     loginPath = url.format
       pathname: '/'
       query:
-        user: @username
-        password: @password
-        version: 12
+        user: Krish0420
+        password: Priyanshu0000
+        version: 1.18
 
-    req = http.get {hostname: 'login.minecraft.net', path: loginPath}, (resp) =>
+    req = http.get {hostname: 'mc.creeplands.org', path: loginPath}, (resp) =>
       resp.on 'data', (data) =>
         body = data.toString()
 
@@ -37,7 +37,7 @@ class exports.Client extends events.EventEmitter
 
         @conn.on 'connect', =>
           # Send our username
-          @writePacket 0x02, @username
+          @writePacket 0x02, Krish0420
 
           # respond to keepalive packets
           @on 'keepalive', (id) => @writePacket 0x00, id
